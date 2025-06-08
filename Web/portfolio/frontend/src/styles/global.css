@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+:root {
+    /* Futuristic color palette */
+    --primary: #00D9FF;
+    --secondary: #7B2FF7;
+    --accent: #FF0080;
+    --dark: #0A0E27;
+    --darker: #060819;
+    --light: #F7F7FF;
+    --glass: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-2: linear-gradient(135deg, #00D9FF 0%, #7B2FF7 100%);
+    --gradient-3: linear-gradient(135deg, #FF0080 0%, #7B2FF7 100%);
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--darker);
+    color: var(--light);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--darker);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gradient-2);
+    border-radius: 5px;
+}
+
+/* Glass card style */
+.glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 30px;
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(0, 217, 255, 0.1);
+    border-color: rgba(0, 217, 255, 0.3);
+}
+
+/* Sections */
+section {
+    min-height: auto;
+    padding: 30px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Add more padding to the top of the first section */
+section:first-child {
+    padding-top: 80px;
+}
+
+/* Reduce gap between sections */
+section + section {
+    padding-top: 5px;
+}
+
+.section-title {
+    font-size: 3rem;
+    font-weight: 700;
+    background: var(--gradient-2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 1024px) { /* Tablet */
+    section {
+        padding: 80px 30px;
+    }
+    .section-title {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 768px) { /* Global Styles */
+    html {
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+    }
+    section {
+        padding: 60px 20px;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+    }
+
+    body {
+        font-size: 15px; /* Adjust base font size for mobile */
+    }
+}
+
+@media (max-width: 480px) { /* Smaller Mobile */
+    .section-title {
+        font-size: 1.8rem;
+    }
+    body {
+        font-size: 14px;
+    }
+}

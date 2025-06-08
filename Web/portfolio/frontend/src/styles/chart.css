@@ -1,0 +1,120 @@
+/* Skills Charts Container */
+.skills-charts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  
+  .skill-chart-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+  
+  .skill-chart-item:hover {
+    transform: translateY(-12px) scale(1.02);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(0, 217, 255, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 217, 255, 0.2), 0 0 30px rgba(123, 47, 247, 0.15);
+  }
+  
+  .skill-chart-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.02) 0%, rgba(123, 47, 247, 0.02) 100%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: -1;
+  }
+  
+  .skill-chart-item:hover::before {
+    opacity: 1;
+  }
+  
+  .chart-title {
+    font-size: 1.3rem;
+    color: var(--light);
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-align: center;
+    background: var(--gradient-2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .chart-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 200px;
+    height: 200px;
+  }
+  
+  /* Remove SVG-specific styles */
+  .chart-segment,
+  .percentage-display,
+  .chart-legend,
+  .legend-item,
+  .legend-color {
+    display: none; /* Hide old SVG-related styles */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .skills-charts-container {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+  
+    .chart-wrapper {
+      width: 180px;
+      height: 180px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .skills-charts-container {
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+  
+    .skill-chart-item {
+      padding: 15px;
+    }
+  
+    .chart-title {
+      font-size: 1.2rem;
+    }
+  
+    .chart-wrapper {
+      width: 160px;
+      height: 160px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .chart-wrapper {
+      width: 140px;
+      height: 140px;
+    }
+  
+    .chart-title {
+      font-size: 1.1rem;
+    }
+  }
